@@ -1,4 +1,16 @@
-# Deletion on peer-to-peer social networks
+# Basis and Background
+
+This project arose out of work done in CS87: Parallel and Distributed 
+Systems at Swarthmore College in Fall 2021. @veggiedefender and @proginoskes
+found that there was a significant gap in many existing Peer-to-Peer messaging
+apps, where deletion was rarely implemented in early stages of development, and
+when it was implemented it was not particularly thorough. We wanted to make
+a messaging system which emphasized temporary persistence of information, allowed
+users a greater level of control over their information, and did so without
+sacrificing reliable content delivery. We built a simple application to 
+demonstrate that such a task was possible.
+
+# Our Deletion Method
 
 ## Install dependencies
 ```
