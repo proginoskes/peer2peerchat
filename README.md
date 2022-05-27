@@ -12,6 +12,27 @@ demonstrate that such a task was possible.
 
 # Our Deletion Method
 
+We implemented a two-way deletion method. Each message has a time to live, which
+we call "timeout." In order to preserve a message on the network, this TTL
+must be periodically extended. Otherwise, the message will disappear from the
+network. If someone would like to delete a message, they can either wait for
+the message to expire, or they can send out an active delete message, which is
+passed by gossip protocol - in the same way as a content message - and which 
+wipes the specified message from nodes that come in contact with said deletion
+message.
+
+# Risks
+
+While we implement a system which allows for a deletion guarantee, there are
+risks associated with our deletion system. In the case of partition, the only
+possible deletion method is the "wait" or "passive" delete. This means that
+messages must have a relatively short time to live in order for deletion to remain
+partition-tolerant. When implementing a client or starting up a node, we advise
+that users keep in mind that their messages must have a TTL long enough to
+traverse the network but short enough so that information they share - and then
+decide they wish they hadn't - doesn't stay up on inaccessible regions for too 
+long.
+
 ## Install dependencies
 ```
 npm install
